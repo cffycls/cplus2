@@ -65,6 +65,7 @@
        cout << "书 ID : " << book->book_id <<endl;
     }
  6、const、&和指针地址
+ - 对象访问：obj.val，指针访问：p->val、或者 (*p).val；
  - const修饰指针
     int x=3; int const * p=&x; 
     //p=&y 正确：const*p是 别名的地址只读[不变]，别名的值可以改变

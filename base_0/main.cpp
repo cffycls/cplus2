@@ -1,6 +1,5 @@
-﻿#include <iostream>
+#include <iostream>
 //0.引用
-#include <string>
 #include "TV.cpp"
 
 class Coordinate
@@ -19,6 +18,7 @@ public:
 };
 
 int main() {
+    system("chcp 65001 > nul");
     std::cout << "Hello, World!" << std::endl;
 
     //5. 类定义与使用，必须在main()之前（否则至少先声明）
@@ -66,12 +66,17 @@ int main() {
 
     //3. 赋值，执行方法
     tv.type = 20;
-    tv.name = "属性必须全值";
+    //"属性必须全值"
+    for (int j = 0; j < 6; ++j) {
+        tv.name[j] = j;
+    }
     tv.power();
     t->changeVol();
     for (int i = 0; i < 20; i++) {
         t20[i].type = i;
-        t20[i].name = "属性必须全值";
+        for (int j = 0; j < 6; ++j) {
+            t20[i].name[j] = j;
+        }
         t20[i].power();
     }
     //4. `堆`不用清理：new => delete + null

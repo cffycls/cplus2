@@ -1,0 +1,43 @@
+﻿﻿﻿1、类的构造引用
+- &和指针运算
+    Coordinate coord[3];                    //栈实例化，自动回收
+    coord[1].m_iX = 10;
+    Coordinate * p = new Coordinate[3];     //堆实例化
+    p[0].m_iY = 10;
+    p[1].m_iY = 111;
+    p[2].m_iY = 2282;
+    p->m_iY = 30; //覆盖p[0].m_iY            //指针变量p的++相当于移位
+    cout << & (p[0]) << "\t" << & (p[1]) << "\t" << & (p[2]) << "\t" << & (p[3]) << endl;
+    cout << p++ << "\t" << p++ << "\t" << p++ << "\t" << p << endl; //结果同上，移位、下面不同
+    cout << & (p[0]) << "\t" << & (p[1]) << "\t" << & (p[2]) << "\t" << & (p[3]) << endl;
+    cout << p->m_iY << ", " << p[1].m_iY << endl; //随机数, 0
+
+    cout << --p << "\t" << --p << "\t" << --p << "\t" << p << endl; //指针复位，逆序输出
+    cout << p->m_iY << ", " << p[1].m_iY << endl
+- 头部引用关联：属性头类、操作方法、主文件
+    关联实例：主类 + 线段类 + 坐标类
+    main_line.cpp
+        include "libs/Line.h";
+        
+    libs/Line.cpp
+        include "Line.h";
+    libs/Line.h
+        include "Coordinate.h";
+        
+    libs/Coordinate.cpp
+        include "Coordinate.h";
+    libs/Coordinate.h
+        -
+    a.主函数内引用xx.cpp或xx.h等效（编译工作），目前注意不要重复引用："不重复"、<系统的方括号正常调用>，
+    b.操作方法xx.cpp调用属性头xx.h，
+    c.属性头类xx.h引用其它类，使用xx.cpp或xx.h，
+    d.列表赋值只定义一次 Line(int x1, int y1, int x2, int y2):pointA(x1,y1),pointB(x2,y2) {}，建议放到操作方法中；
+- 堆区销毁：[栈（数据结构）：一种先进后出的数据结构]
+    Coordinate all init 1, 2
+    Coordinate all init 3, 4
+    Line all init
+    (1, 2) => (3, 4)
+    ~ Line destory
+    ~ Coordinate destory 3, 4
+    ~ Coordinate destory 1, 2
+- 浅拷贝、深拷贝：注意在有指针的对象拷贝时、重新分配空间，否则造成多次释放；
