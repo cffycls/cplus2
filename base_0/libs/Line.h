@@ -6,7 +6,7 @@
 class Line {
 public:
     Line();
-    Line(int x1,int y1,int x2,int y2);
+    Line(int x1, int y1, int x2, int y2);
     //Line(int x1,int y1,int x2,int y2):pointA(x1,y1),pointB(x2,y2){};
     ~Line();
 

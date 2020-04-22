@@ -1,0 +1,15 @@
+##使用bug
+====
+1、右键添加 "single c/c++ file"，失败，编译函数缺失：
+    找到 CMakeLists.txt 类比追加，注意引用到的.cpp、.h文件的完备、当前主文件名是否正确和重复；
+2、win10编译器命令行中文乱码：
+    main() 添加 "system("chcp 65001 > nul")"；
+3、"error: stray '\277' in program"，编译运行失败：
+    检查源代码中出现了中文的标点符号；
+4、"undefined reference to `Coordinatep::Coordinatep()'"，编译运行失败：
+    检查源代码中 Coordinatep::Coordinatep() 类初始化定义是否存在；
+5、"warning: LF will be replaced by CRLF//CRLF will be replaced by LF in XX"
+    git config core.autocrlf input
+
+##远程编译、同步
+[使用Clion优雅的完全远程自动同步和远程调试c++](https://www.cnblogs.com/qiumingcheng/p/11185073.html)

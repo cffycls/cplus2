@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-    Line * l1 = new Line(1,2,3,4);
+    Line * l1 = new Line(1, 2, 3, 4);
     l1->info();
     delete l1;
     l1 = NULL;

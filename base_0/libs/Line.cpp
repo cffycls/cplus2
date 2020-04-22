@@ -29,7 +29,7 @@ Line::Line(int x1, int y1, int x2, int y2) {
     cout << "Line all init" << endl;
 }
 
-/*Line::~Line() {
+/*Line::Linep() {
     cout << "~ Line destory" << endl;
 }*/
 Line::~Line() {
