@@ -1,4 +1,4 @@
-1、this指针
+1、this、类的生命周期，常引用、常指针
 - this是对象的一个特殊的指针：Obj obj; this == & obj ;
     Obj obj(10) ==> Obj obj(this, 10)
     系统不会在多个对象错乱的情况，是为每个成员函数自动加了this指针；
